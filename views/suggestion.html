@@ -1,0 +1,17 @@
+<h2>{{ post.title }}</h2>
+
+<ul>
+	<li ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+		<p>{{ comment.body }}</p>
+		<p>
+			<span class="glyphicon glyphicon-plus-sign" ng-click="upVote(comment)"></span> Upvotes: {{comment.upvotes}}
+		</p>
+	</li>
+
+<form ng-submit="addComment()" style="margin-top: 50px">
+		<h3> Submit Your Suggestion </h3>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Great ideas here" ng-model="body"></input>
+		</div>
+		<button type="submit" class="btn btn-primary">Suggest</button>
+	</form>
