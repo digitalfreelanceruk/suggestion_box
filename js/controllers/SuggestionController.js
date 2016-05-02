@@ -1,7 +1,5 @@
 app.controller('SuggestionController', ['$scope', '$routeParams', 'suggestions', function($scope, $routeParams, suggestions) {
-	$scope.post = suggestions.posts.filter(function(a) {
-      return (a.id == $routeParams.id);
-    })[0];
+	$scope.post = suggestions.posts[$routeParams.id];
 	$scope.addComment = function() {
 		if(!$scope.body || $scope.body === "") {
 			return;
